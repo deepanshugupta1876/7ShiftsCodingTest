@@ -73,11 +73,11 @@ class StringCalculator {
         val stringNumbers = removeNewLine(numbers)
         val negativeNumbers = ArrayList<Int>()
         val delimiterRegex = delimiter.toCharArray()
-        val numbersInString: List<String> = stringNumbers.split(*delimiterRegex)
+        val numbersInString: List<String> = stringNumbers.split(*delimiterRegex) //we might get some strings as empty. Assuming empty string to be 0.
         val numbersInInt = ArrayList<Int>(numbersInString.size)
         for (number in numbersInString) {
             val numberInString = number.trim()
-            val numberInInt = if (numberInString.isEmpty()) 0 else numberInString.toInt()
+            val numberInInt = if (numberInString.isEmpty()) ZERO else numberInString.toInt()
             if (numberInInt < ZERO) {
                 negativeNumbers.add(numberInInt)
             }
